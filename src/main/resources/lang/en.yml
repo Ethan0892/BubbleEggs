@@ -1,0 +1,105 @@
+# BubbleEggs Language File - English
+# Use &#HEXCODE for hex colors (e.g., &#FFFFFF for white)
+# Use & for legacy color codes
+
+# General Messages
+plugin:
+  name: "&#FF6B6BBubble&#FFFFFFEggs"
+  version: "Version: %version%"
+  author: "Author: %author%"
+  description: "Catch mobs and give players spawn eggs!"
+  help-header: "&#FF6B6B=== BubbleEggs Help ==="
+  help-footer: "&#FF6B6B========================="
+  reload-success: "&#00FF00Configuration reloaded successfully!"
+  reload-error: "&#FF0000Error reloading configuration: %error%"
+
+# Command Messages
+commands:
+  no-permission: "&#FF0000You don't have permission to use this command!"
+  player-only: "&#FF0000This command can only be used by players!"
+  invalid-usage: "&#FF0000Invalid usage! Use: %usage%"
+  help:
+    - "&#FF6B6B/mte &#FFFFFF- Show plugin information"
+    - "&#FF6B6B/mte help &#FFFFFF- Display this help menu"
+    - "&#FF6B6B/mte reload &#FFFFFF- Reload plugin configuration"
+    - "&#FF6B6B/mte give <amount> [player] &#FFFFFF- Give catch capsules"
+    - "&#FF6B6B/mte bulkupdate <type> <value> &#FFFFFF- Bulk update mob settings"
+  
+  give:
+    success-self: "&#00FF00You received %amount% catch capsule(s)!"
+    success-other: "&#00FF00You gave %amount% catch capsule(s) to %player%!"
+    success-target: "&#00FF00You received %amount% catch capsule(s) from %sender%!"
+    player-not-found: "&#FF0000Player '%player%' not found!"
+    invalid-amount: "&#FF0000Invalid amount! Must be a positive number."
+    
+  bulkupdate:
+    success: "&#00FF00Successfully updated %type% for all mobs to %value%!"
+    invalid-type: "&#FF0000Invalid type! Use: chance, money, or item"
+    invalid-value: "&#FF0000Invalid value for %type%!"
+
+# Catching Messages
+catching:
+  success: "&#00FF00Successfully caught %mob%!"
+  failure: "&#FF0000Failed to catch %mob%! (%chance%% chance)"
+  disabled: "&#FF0000Mob catching is disabled!"
+  disabled-mob: "&#FF0000%mob% catching is disabled!"
+  disabled-world: "&#FF0000Mob catching is disabled in this world!"
+  disabled-region: "&#FF0000Mob catching is disabled in this region!"
+  no-permission: "&#FF0000You don't have permission to catch mobs!"
+  cooldown: "&#FF0000You must wait %time% seconds before catching another mob!"
+  too-far: "&#FF0000The mob is too far away to catch!"
+  too-close: "&#FF0000You're too close to the mob to catch it safely!"
+  through-blocks: "&#FF0000You can't catch mobs through blocks!"
+  boss-mob: "&#FF0000Boss mobs cannot be caught!"
+  named-mob: "&#FF0000Named mobs cannot be caught!"
+  tamed-mob: "&#FF0000Tamed mobs cannot be caught!"
+  too-healthy: "&#FF0000The mob is too healthy to catch! (Max: %max%% health)"
+  inventory-full: "&#FF0000Your inventory is full! The spawn egg was dropped."
+
+# Economy Messages
+economy:
+  insufficient-funds: "&#FF0000You need $%cost% to catch this mob!"
+  cost-paid: "&#FFD700$%cost% has been deducted from your account."
+  cost-refunded: "&#00FF00$%cost% has been refunded to your account."
+
+# Item Cost Messages
+item-cost:
+  insufficient-items: "&#FF0000You need %amount% %item% to catch this mob!"
+  items-consumed: "&#FFD700%amount% %item% has been consumed."
+  items-refunded: "&#00FF00%amount% %item% has been refunded."
+
+# Spawn Egg Messages
+spawn-egg:
+  created: "&#00FF00Created spawn egg for %mob%!"
+  spawned: "&#00FF00Spawned %mob%!"
+  invalid-location: "&#FF0000Cannot spawn mob here!"
+  no-permission-spawn: "&#FF0000You don't have permission to spawn mobs!"
+
+# Spawner Messages
+spawner:
+  changed: "&#00FF00Spawner type changed to %mob%!"
+  no-permission: "&#FF0000You don't have permission to change spawners!"
+  invalid-spawner: "&#FF0000This is not a valid spawner!"
+  disabled: "&#FF0000Spawner changing is disabled!"
+
+# Error Messages
+error:
+  config-load: "&#FF0000Error loading configuration: %error%"
+  mob-not-found: "&#FF0000Mob type '%mob%' not found!"
+  invalid-projectile: "&#FF0000Invalid projectile material: %material%"
+  economy-unavailable: "&#FF0000Economy system is not available!"
+  worldguard-unavailable: "&#FF0000WorldGuard is not available!"
+  nbtapi-unavailable: "&#FF0000NBTAPI is not available!"
+  database-error: "&#FF0000Database error: %error%"
+
+# Placeholders (for spawn egg names/lore)
+placeholders:
+  mob-name: "%mob_name%"
+  mob-health: "%mob_health%"
+  mob-max-health: "%mob_max_health%"
+  player-name: "%player_name%"
+  catch-chance: "%catch_chance%"
+  money-cost: "%money_cost%"
+  item-cost: "%item_cost%"
+  world: "%world%"
+  location: "%location%"

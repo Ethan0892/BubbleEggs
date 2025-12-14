@@ -1,0 +1,58 @@
+name: BubbleEggs
+version: 1.0.0
+main: com.bubbleeggs.BubbleEggs
+api-version: 1.21
+description: Catch mobs and give players spawn eggs
+author: BubbleCraft
+website: https://github.com/BubbleCraft/BubbleEggs
+
+commands:
+  mte:
+    description: Main BubbleEggs command
+    usage: /mte [help|reload|give|bulkupdate]
+    aliases: [bubbleeggs, be]
+
+permissions:
+  bubbleeggs.*:
+    description: Gives access to all BubbleEggs permissions
+    default: op
+    children:
+      bubbleeggs.use: true
+      bubbleeggs.give: true
+      bubbleeggs.reload: true
+      bubbleeggs.bypass.cost: true
+      bubbleeggs.bypass.cooldown: true
+      bubbleeggs.bypass.world: true
+      bubbleeggs.bypass.region: true
+      bubbleeggs.spawn: true
+      bubbleeggs.spawner.change: true
+  bubbleeggs.use:
+    description: Allows player to catch mobs
+    default: true
+  bubbleeggs.give:
+    description: Allows player to give catch capsules
+    default: op
+  bubbleeggs.reload:
+    description: Allows player to reload the plugin
+    default: op
+  bubbleeggs.bypass.cost:
+    description: Bypass catching costs
+    default: op
+  bubbleeggs.bypass.cooldown:
+    description: Bypass catching cooldowns
+    default: op
+  bubbleeggs.bypass.world:
+    description: Catch mobs in any world
+    default: op
+  bubbleeggs.bypass.region:
+    description: Catch mobs in any region
+    default: op
+  bubbleeggs.spawn:
+    description: Allows spawning mobs with BubbleEggs spawn eggs
+    default: true
+  bubbleeggs.spawner.change:
+    description: Allows changing spawner types with spawn eggs
+    default: op
+
+depend: []
+softdepend: [Vault, WorldGuard, NBTAPI]

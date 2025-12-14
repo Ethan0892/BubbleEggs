@@ -1,0 +1,204 @@
+# BubbleEggs Configuration File
+# For support and updates, visit: https://github.com/yourusername/BubbleEggs
+
+# General Settings
+settings:
+  # Enable debug messages
+  debug: false
+  
+  # Check for updates on startup
+  check-updates: true
+  
+  # Language file to use (must exist in lang folder)
+  language: "en"
+  
+  # Metrics collection (helps with development)
+  metrics: true
+
+# Catch Capsule Settings
+catch-capsule:
+  # Material of the catch capsule (SNOWBALL, EGG, ENDER_PEARL, etc.)
+  material: "EGG"
+  
+  # Display name of the catch capsule (supports color codes and HEX)
+  name: "&#FF6B6B&lCatch Capsule"
+  
+  # Lore for the catch capsule (supports color codes and HEX)
+  lore:
+    - "&#FFFF00Throw at a mob to catch it!"
+    - "&#FFB6C1Right click to throw"
+    - "&#98FB98Left click to punch-throw"
+  
+  # Custom model data for the catch capsule (0 = disabled)
+  custom-model-data: 0
+  
+  # Glow effect on the capsule
+  glow: true
+  
+  # How to use the capsule (THROW, PUNCH, BOTH)
+  usage-mode: "THROW"
+
+# Catching Settings
+catching:
+  # Default catch chance (0.0 to 1.0)
+  default-catch-chance: 0.5
+  
+  # Enable catching in all worlds by default
+  enabled-by-default: true
+  
+  # Worlds where catching is disabled
+  disabled-worlds:
+    - "example_world"
+  
+  # Enable catching boss mobs (Wither, Ender Dragon, etc.)
+  allow-boss-mobs: false
+  
+  # Enable catching named mobs
+  allow-named-mobs: true
+  
+  # Enable catching tamed mobs
+  allow-tamed-mobs: false
+  
+  # Maximum health percentage for catching (1.0 = 100%)
+  max-health-percentage: 1.0
+  
+  # Cooldown between catches (in seconds, 0 = disabled)
+  cooldown: 5
+
+# Economy Settings (requires Vault)
+economy:
+  # Enable economy features
+  enabled: false
+  
+  # Default money cost for catching (0 = free)
+  default-cost: 0.0
+  
+  # Message when player doesn't have enough money
+  insufficient-funds-message: "&#FF0000You need $%cost% to catch this mob!"
+
+# Item Cost Settings
+item-cost:
+  # Enable item cost features
+  enabled: false
+  
+  # Default item cost (format: MATERIAL:AMOUNT)
+  default-cost: "DIAMOND:1"
+  
+  # Message when player doesn't have required items
+  insufficient-items-message: "&#FF0000You need %amount% %item% to catch this mob!"
+
+# Spawn Egg Settings
+spawn-eggs:
+  # Save mob data to spawn eggs (requires NBTAPI)
+  save-mob-data: true
+  
+  # Custom model data for spawn eggs (0 = disabled)
+  custom-model-data: 0
+  
+  # Custom name format for spawn eggs
+  name-format: "&#FF6B6B%mob_name% &#FFFFFFSpawn Egg"
+  
+  # Lore for spawn eggs
+  lore:
+    - "&#FFFF00Contains: %mob_name%"
+    - "&#FFB6C1Health: %mob_health%"
+    - "&#98FB98Right click to spawn"
+  
+  # Glow effect on spawn eggs
+  glow: false
+
+# Spawner Settings
+spawner:
+  # Allow changing spawner types with spawn eggs
+  allow-spawner-change: true
+  
+  # Require permission to change spawners
+  require-permission: true
+  
+  # Permission needed to change spawners
+  permission: "mobstoeggs.spawner.change"
+
+# Effects Settings
+effects:
+  # Particle effects
+  particles:
+    # Enable particle effects
+    enabled: true
+    
+    # Success particles
+    success:
+      type: "HAPPY_VILLAGER"
+      count: 10
+      speed: 0.1
+      offset-x: 0.5
+      offset-y: 0.5
+      offset-z: 0.5
+    
+    # Failure particles
+    failure:
+      type: "SMOKE_NORMAL"
+      count: 5
+      speed: 0.1
+      offset-x: 0.3
+      offset-y: 0.3
+      offset-z: 0.3
+  
+  # Sound effects
+  sounds:
+    # Enable sound effects
+    enabled: true
+    
+    # Success sound
+    success:
+      type: "ENTITY_PLAYER_LEVELUP"
+      volume: 1.0
+      pitch: 1.5
+    
+    # Failure sound
+    failure:
+      type: "ENTITY_VILLAGER_NO"
+      volume: 1.0
+      pitch: 0.8
+    
+    # Throw sound
+    throw:
+      type: "ENTITY_SNOWBALL_THROW"
+      volume: 0.5
+      pitch: 1.0
+
+# WorldGuard Integration
+worldguard:
+  # Enable WorldGuard integration
+  enabled: true
+  
+  # Check for specific flag (set to "" to disable)
+  flag-name: "mob-catching"
+  
+  # Default flag value for regions without the flag set
+  default-flag-value: true
+  
+  # Bypass regions for ops
+  ops-bypass: true
+
+# Advanced Settings
+advanced:
+  # Maximum distance for catching mobs
+  max-catch-distance: 10.0
+  
+  # Minimum distance for catching mobs  
+  min-catch-distance: 1.0
+  
+  # Enable catching through blocks
+  catch-through-blocks: false
+  
+  # Enable async processing for better performance
+  async-processing: true
+  
+  # Database settings (for future features)
+  database:
+    type: "SQLITE"
+    host: "localhost"
+    port: 3306
+    database: "bubbleeggs"
+    username: "root"
+    password: "password"

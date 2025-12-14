@@ -1,0 +1,562 @@
+# Mob Configuration File
+# Configure individual mob settings here
+# Each mob type can have custom settings for catching
+
+# Format:
+# MOB_TYPE:
+#   enabled: true/false
+#   catch-chance: 0.0-1.0
+#   money-cost: 0.0+
+#   item-cost: "MATERIAL:AMOUNT"
+#   custom-name: "Custom Name"
+#   max-health-percentage: 0.0-1.0
+
+# Passive Mobs
+ALLAY:
+  enabled: true
+  catch-chance: 0.7
+  money-cost: 50.0
+  item-cost: "EMERALD:2"
+  max-health-percentage: 1.0
+
+ARMADILLO:
+  enabled: true
+  catch-chance: 0.6
+  money-cost: 30.0
+  item-cost: "WHEAT:5"
+  max-health-percentage: 1.0
+
+AXOLOTL:
+  enabled: true
+  catch-chance: 0.8
+  money-cost: 75.0
+  item-cost: "TROPICAL_FISH:3"
+  max-health-percentage: 1.0
+
+BAT:
+  enabled: true
+  catch-chance: 0.9
+  money-cost: 10.0
+  item-cost: "COAL:1"
+  max-health-percentage: 1.0
+
+BEE:
+  enabled: true
+  catch-chance: 0.8
+  money-cost: 25.0
+  item-cost: "HONEYCOMB:1"
+  max-health-percentage: 1.0
+
+CAMEL:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 100.0
+  item-cost: "CACTUS:10"
+  max-health-percentage: 1.0
+
+CAT:
+  enabled: true
+  catch-chance: 0.7
+  money-cost: 40.0
+  item-cost: "COD:2"
+  max-health-percentage: 1.0
+
+CHICKEN:
+  enabled: true
+  catch-chance: 0.8
+  money-cost: 15.0
+  item-cost: "SEEDS:3"
+  max-health-percentage: 1.0
+
+COD:
+  enabled: true
+  catch-chance: 0.9
+  money-cost: 5.0
+  item-cost: "KELP:2"
+  max-health-percentage: 1.0
+
+COW:
+  enabled: true
+  catch-chance: 0.6
+  money-cost: 30.0
+  item-cost: "WHEAT:5"
+  max-health-percentage: 1.0
+
+DOLPHIN:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 80.0
+  item-cost: "COD:5"
+  max-health-percentage: 1.0
+
+DONKEY:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 60.0
+  item-cost: "CARROT:5"
+  max-health-percentage: 1.0
+
+FOX:
+  enabled: true
+  catch-chance: 0.6
+  money-cost: 45.0
+  item-cost: "SWEET_BERRIES:3"
+  max-health-percentage: 1.0
+
+FROG:
+  enabled: true
+  catch-chance: 0.8
+  money-cost: 20.0
+  item-cost: "SLIME_BALL:1"
+  max-health-percentage: 1.0
+
+GLOW_SQUID:
+  enabled: true
+  catch-chance: 0.7
+  money-cost: 35.0
+  item-cost: "GLOW_INK_SAC:1"
+  max-health-percentage: 1.0
+
+GOAT:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 50.0
+  item-cost: "WHEAT:7"
+  max-health-percentage: 1.0
+
+HORSE:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 100.0
+  item-cost: "APPLE:5"
+  max-health-percentage: 1.0
+
+LLAMA:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 60.0
+  item-cost: "HAY_BLOCK:2"
+  max-health-percentage: 1.0
+
+MOOSHROOM:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 80.0
+  item-cost: "RED_MUSHROOM:5"
+  max-health-percentage: 1.0
+
+MULE:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 70.0
+  item-cost: "CARROT:5"
+  max-health-percentage: 1.0
+
+OCELOT:
+  enabled: true
+  catch-chance: 0.6
+  money-cost: 50.0
+  item-cost: "COD:3"
+  max-health-percentage: 1.0
+
+PANDA:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 120.0
+  item-cost: "BAMBOO:10"
+  max-health-percentage: 1.0
+
+PARROT:
+  enabled: true
+  catch-chance: 0.7
+  money-cost: 60.0
+  item-cost: "SEEDS:5"
+  max-health-percentage: 1.0
+
+PIG:
+  enabled: true
+  catch-chance: 0.7
+  money-cost: 25.0
+  item-cost: "CARROT:3"
+  max-health-percentage: 1.0
+
+POLAR_BEAR:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 150.0
+  item-cost: "COD:10"
+  max-health-percentage: 1.0
+
+PUFFERFISH:
+  enabled: true
+  catch-chance: 0.8
+  money-cost: 30.0
+  item-cost: "KELP:3"
+  max-health-percentage: 1.0
+
+RABBIT:
+  enabled: true
+  catch-chance: 0.8
+  money-cost: 20.0
+  item-cost: "CARROT:2"
+  max-health-percentage: 1.0
+
+SALMON:
+  enabled: true
+  catch-chance: 0.9
+  money-cost: 10.0
+  item-cost: "KELP:2"
+  max-health-percentage: 1.0
+
+SHEEP:
+  enabled: true
+  catch-chance: 0.7
+  money-cost: 25.0
+  item-cost: "WHEAT:3"
+  max-health-percentage: 1.0
+
+SKELETON_HORSE:
+  enabled: true
+  catch-chance: 0.2
+  money-cost: 500.0
+  item-cost: "BONE:20"
+  max-health-percentage: 1.0
+
+SNIFFER:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 200.0
+  item-cost: "TORCHFLOWER_SEEDS:5"
+  max-health-percentage: 1.0
+
+SQUID:
+  enabled: true
+  catch-chance: 0.8
+  money-cost: 15.0
+  item-cost: "INK_SAC:1"
+  max-health-percentage: 1.0
+
+STRIDER:
+  enabled: true
+  catch-chance: 0.6
+  money-cost: 80.0
+  item-cost: "WARPED_FUNGUS:5"
+  max-health-percentage: 1.0
+
+TADPOLE:
+  enabled: true
+  catch-chance: 0.9
+  money-cost: 5.0
+  item-cost: "SLIME_BALL:1"
+  max-health-percentage: 1.0
+
+TROPICAL_FISH:
+  enabled: true
+  catch-chance: 0.9
+  money-cost: 15.0
+  item-cost: "KELP:2"
+  max-health-percentage: 1.0
+
+TURTLE:
+  enabled: true
+  catch-chance: 0.7
+  money-cost: 40.0
+  item-cost: "SEAGRASS:5"
+  max-health-percentage: 1.0
+
+VILLAGER:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 200.0
+  item-cost: "EMERALD:5"
+  max-health-percentage: 1.0
+
+WANDERING_TRADER:
+  enabled: true
+  catch-chance: 0.2
+  money-cost: 300.0
+  item-cost: "EMERALD:10"
+  max-health-percentage: 1.0
+
+WOLF:
+  enabled: true
+  catch-chance: 0.6
+  money-cost: 50.0
+  item-cost: "BONE:3"
+  max-health-percentage: 1.0
+
+ZOMBIE_HORSE:
+  enabled: true
+  catch-chance: 0.2
+  money-cost: 400.0
+  item-cost: "ROTTEN_FLESH:20"
+  max-health-percentage: 1.0
+
+# Neutral Mobs
+CAVE_SPIDER:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 60.0
+  item-cost: "SPIDER_EYE:2"
+  max-health-percentage: 0.5
+
+ENDERMAN:
+  enabled: true
+  catch-chance: 0.2
+  money-cost: 300.0
+  item-cost: "ENDER_PEARL:3"
+  max-health-percentage: 0.3
+
+IRON_GOLEM:
+  enabled: true
+  catch-chance: 0.1
+  money-cost: 1000.0
+  item-cost: "IRON_BLOCK:5"
+  max-health-percentage: 0.2
+
+LLAMA:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 60.0
+  item-cost: "HAY_BLOCK:2"
+  max-health-percentage: 1.0
+
+PIGLIN:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 100.0
+  item-cost: "GOLD_INGOT:3"
+  max-health-percentage: 0.5
+
+SPIDER:
+  enabled: true
+  catch-chance: 0.6
+  money-cost: 40.0
+  item-cost: "STRING:5"
+  max-health-percentage: 0.5
+
+ZOMBIFIED_PIGLIN:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 80.0
+  item-cost: "ROTTEN_FLESH:5"
+  max-health-percentage: 0.5
+
+# Hostile Mobs
+BLAZE:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 200.0
+  item-cost: "BLAZE_POWDER:5"
+  max-health-percentage: 0.3
+
+BOGGED:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 120.0
+  item-cost: "BONE:5"
+  max-health-percentage: 0.4
+
+BREEZE:
+  enabled: true
+  catch-chance: 0.2
+  money-cost: 300.0
+  item-cost: "WIND_CHARGE:3"
+  max-health-percentage: 0.3
+
+CREEPER:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 100.0
+  item-cost: "GUNPOWDER:5"
+  max-health-percentage: 0.4
+
+DROWNED:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 80.0
+  item-cost: "ROTTEN_FLESH:3"
+  max-health-percentage: 0.4
+
+ELDER_GUARDIAN:
+  enabled: false
+  catch-chance: 0.05
+  money-cost: 2000.0
+  item-cost: "PRISMARINE_SHARD:20"
+  max-health-percentage: 0.1
+
+ENDERMITE:
+  enabled: true
+  catch-chance: 0.7
+  money-cost: 50.0
+  item-cost: "ENDER_PEARL:1"
+  max-health-percentage: 0.6
+
+EVOKER:
+  enabled: true
+  catch-chance: 0.1
+  money-cost: 500.0
+  item-cost: "TOTEM_OF_UNDYING:1"
+  max-health-percentage: 0.2
+
+GHAST:
+  enabled: true
+  catch-chance: 0.2
+  money-cost: 400.0
+  item-cost: "GHAST_TEAR:3"
+  max-health-percentage: 0.2
+
+GUARDIAN:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 150.0
+  item-cost: "PRISMARINE_SHARD:5"
+  max-health-percentage: 0.3
+
+HOGLIN:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 120.0
+  item-cost: "PORKCHOP:5"
+  max-health-percentage: 0.3
+
+HUSK:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 60.0
+  item-cost: "SAND:10"
+  max-health-percentage: 0.4
+
+MAGMA_CUBE:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 80.0
+  item-cost: "MAGMA_CREAM:3"
+  max-health-percentage: 0.4
+
+PHANTOM:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 150.0
+  item-cost: "PHANTOM_MEMBRANE:2"
+  max-health-percentage: 0.3
+
+PILLAGER:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 100.0
+  item-cost: "CROSSBOW:1"
+  max-health-percentage: 0.4
+
+RAVAGER:
+  enabled: true
+  catch-chance: 0.1
+  money-cost: 800.0
+  item-cost: "EMERALD:10"
+  max-health-percentage: 0.2
+
+SHULKER:
+  enabled: true
+  catch-chance: 0.2
+  money-cost: 300.0
+  item-cost: "SHULKER_SHELL:1"
+  max-health-percentage: 0.3
+
+SILVERFISH:
+  enabled: true
+  catch-chance: 0.7
+  money-cost: 30.0
+  item-cost: "STONE:5"
+  max-health-percentage: 0.6
+
+SKELETON:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 70.0
+  item-cost: "BONE:3"
+  max-health-percentage: 0.4
+
+SLIME:
+  enabled: true
+  catch-chance: 0.6
+  money-cost: 50.0
+  item-cost: "SLIME_BALL:2"
+  max-health-percentage: 0.5
+
+STRAY:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 80.0
+  item-cost: "BONE:5"
+  max-health-percentage: 0.4
+
+VEX:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 200.0
+  item-cost: "IRON_SWORD:1"
+  max-health-percentage: 0.4
+
+VINDICATOR:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 150.0
+  item-cost: "IRON_AXE:1"
+  max-health-percentage: 0.3
+
+WARDEN:
+  enabled: false
+  catch-chance: 0.01
+  money-cost: 5000.0
+  item-cost: "SCULK_CATALYST:10"
+  max-health-percentage: 0.05
+
+WITCH:
+  enabled: true
+  catch-chance: 0.3
+  money-cost: 120.0
+  item-cost: "POTION:3"
+  max-health-percentage: 0.3
+
+WITHER_SKELETON:
+  enabled: true
+  catch-chance: 0.2
+  money-cost: 400.0
+  item-cost: "WITHER_SKELETON_SKULL:1"
+  max-health-percentage: 0.2
+
+ZOGLIN:
+  enabled: true
+  catch-chance: 0.2
+  money-cost: 200.0
+  item-cost: "ROTTEN_FLESH:10"
+  max-health-percentage: 0.2
+
+ZOMBIE:
+  enabled: true
+  catch-chance: 0.5
+  money-cost: 50.0
+  item-cost: "ROTTEN_FLESH:3"
+  max-health-percentage: 0.4
+
+ZOMBIE_VILLAGER:
+  enabled: true
+  catch-chance: 0.4
+  money-cost: 100.0
+  item-cost: "GOLDEN_APPLE:1"
+  max-health-percentage: 0.4
+
+# Boss Mobs (usually disabled by default)
+ENDER_DRAGON:
+  enabled: false
+  catch-chance: 0.001
+  money-cost: 50000.0
+  item-cost: "DRAGON_EGG:1"
+  max-health-percentage: 0.01
+
+WITHER:
+  enabled: false
+  catch-chance: 0.005
+  money-cost: 20000.0
+  item-cost: "NETHER_STAR:3"
+  max-health-percentage: 0.02
