@@ -65,6 +65,22 @@ catching:
   # Cooldown between catches (in seconds, 0 = disabled)
   cooldown: 5
 
+  # XP levels required per catch attempt (0 = disabled)
+  xp-cost-levels: 0
+
+  # Rare catch threshold: a catch is "rare" if finalChance <= this value (0.0 = disabled)
+  # finalChance = mob catch-chance * world chance-multiplier
+  rare-threshold: 0.1
+
+  # Per-world overrides (uncomment and fill in to override global settings per world)
+  # worlds:
+  #   my_world:
+  #     enabled: true
+  #     cooldown: 5
+  #     xp-cost-levels: 0
+  #     chance-multiplier: 1.0
+  #     rare-threshold: 0.1
+
 # Economy Settings (requires Vault)
 economy:
   # Enable economy features
@@ -181,8 +197,7 @@ worldguard:
   ops-bypass: true
 
 # Advanced Settings
-advanced:
-  # Maximum distance for catching mobs
+advanced:  # Maximum distance for catching mobs
   max-catch-distance: 10.0
   
   # Minimum distance for catching mobs  
@@ -202,3 +217,27 @@ advanced:
     database: "bubbleeggs"
     username: "root"
     password: "password"
+
+# Crafting Settings
+crafting:
+  catch-capsule:
+    # Enable crafting recipe for Catch Capsules
+    enabled: false
+
+    # Recipe type: SHAPED or SHAPELESS
+    type: "SHAPED"
+
+    # Amount of Catch Capsules produced
+    result-amount: 4
+
+    # Shaped recipe: 3 rows of 3 characters each (space = empty slot)
+    shape:
+      - " S "
+      - "SBS"
+      - " S "
+
+    # For SHAPED: map each character to a material
+    # For SHAPELESS: list of materials (one per line, ignore shape/character keys)
+    ingredients:
+      S: "STRING"
+      B: "SNOWBALL"

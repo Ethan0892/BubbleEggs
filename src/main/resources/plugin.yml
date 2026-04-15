@@ -1,5 +1,5 @@
 name: BubbleEggs
-version: 1.0.0
+version: 1.1.2
 main: com.bubbleeggs.BubbleEggs
 api-version: 1.21
 description: Catch mobs and give players spawn eggs
@@ -9,7 +9,7 @@ website: https://github.com/BubbleCraft/BubbleEggs
 commands:
   mte:
     description: Main BubbleEggs command
-    usage: /mte [help|reload|give|bulkupdate]
+    usage: /mte [help|reload|give|bulkupdate|stats|top]
     aliases: [bubbleeggs, be]
 
 permissions:
@@ -24,8 +24,11 @@ permissions:
       bubbleeggs.bypass.cooldown: true
       bubbleeggs.bypass.world: true
       bubbleeggs.bypass.region: true
+      bubbleeggs.bypass.xp: true
       bubbleeggs.spawn: true
       bubbleeggs.spawner.change: true
+      bubbleeggs.stats: true
+      bubbleeggs.top: true
   bubbleeggs.use:
     description: Allows player to catch mobs
     default: true
@@ -47,6 +50,15 @@ permissions:
   bubbleeggs.bypass.region:
     description: Catch mobs in any region
     default: op
+  bubbleeggs.bypass.xp:
+    description: Bypass XP level cost for catching
+    default: op
+  bubbleeggs.stats:
+    description: View catch statistics
+    default: true
+  bubbleeggs.top:
+    description: View catch leaderboards
+    default: true
   bubbleeggs.spawn:
     description: Allows spawning mobs with BubbleEggs spawn eggs
     default: true
@@ -55,4 +67,4 @@ permissions:
     default: op
 
 depend: []
-softdepend: [Vault, WorldGuard, NBTAPI]
+softdepend: [Vault, WorldGuard, NBTAPI, PlaceholderAPI]

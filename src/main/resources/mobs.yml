@@ -10,6 +10,7 @@
 #   item-cost: "MATERIAL:AMOUNT"
 #   custom-name: "Custom Name"
 #   max-health-percentage: 0.0-1.0
+#   spawner-enabled: true/false  # Whether this mob's egg can change a spawner (default: true)
 
 # Passive Mobs
 ALLAY:
@@ -18,6 +19,7 @@ ALLAY:
   money-cost: 50.0
   item-cost: "EMERALD:2"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 ARMADILLO:
   enabled: true
@@ -25,6 +27,7 @@ ARMADILLO:
   money-cost: 30.0
   item-cost: "WHEAT:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 AXOLOTL:
   enabled: true
@@ -32,6 +35,7 @@ AXOLOTL:
   money-cost: 75.0
   item-cost: "TROPICAL_FISH:3"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 BAT:
   enabled: true
@@ -39,6 +43,7 @@ BAT:
   money-cost: 10.0
   item-cost: "COAL:1"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 BEE:
   enabled: true
@@ -46,6 +51,7 @@ BEE:
   money-cost: 25.0
   item-cost: "HONEYCOMB:1"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 CAMEL:
   enabled: true
@@ -53,6 +59,7 @@ CAMEL:
   money-cost: 100.0
   item-cost: "CACTUS:10"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 CAT:
   enabled: true
@@ -60,6 +67,7 @@ CAT:
   money-cost: 40.0
   item-cost: "COD:2"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 CHICKEN:
   enabled: true
@@ -67,6 +75,7 @@ CHICKEN:
   money-cost: 15.0
   item-cost: "SEEDS:3"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 COD:
   enabled: true
@@ -74,6 +83,7 @@ COD:
   money-cost: 5.0
   item-cost: "KELP:2"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 COW:
   enabled: true
@@ -81,6 +91,7 @@ COW:
   money-cost: 30.0
   item-cost: "WHEAT:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 DOLPHIN:
   enabled: true
@@ -88,6 +99,7 @@ DOLPHIN:
   money-cost: 80.0
   item-cost: "COD:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 DONKEY:
   enabled: true
@@ -95,6 +107,7 @@ DONKEY:
   money-cost: 60.0
   item-cost: "CARROT:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 FOX:
   enabled: true
@@ -102,6 +115,7 @@ FOX:
   money-cost: 45.0
   item-cost: "SWEET_BERRIES:3"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 FROG:
   enabled: true
@@ -109,6 +123,7 @@ FROG:
   money-cost: 20.0
   item-cost: "SLIME_BALL:1"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 GLOW_SQUID:
   enabled: true
@@ -116,6 +131,7 @@ GLOW_SQUID:
   money-cost: 35.0
   item-cost: "GLOW_INK_SAC:1"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 GOAT:
   enabled: true
@@ -123,6 +139,7 @@ GOAT:
   money-cost: 50.0
   item-cost: "WHEAT:7"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 HORSE:
   enabled: true
@@ -130,6 +147,7 @@ HORSE:
   money-cost: 100.0
   item-cost: "APPLE:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 LLAMA:
   enabled: true
@@ -137,6 +155,7 @@ LLAMA:
   money-cost: 60.0
   item-cost: "HAY_BLOCK:2"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 MOOSHROOM:
   enabled: true
@@ -144,6 +163,7 @@ MOOSHROOM:
   money-cost: 80.0
   item-cost: "RED_MUSHROOM:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 MULE:
   enabled: true
@@ -151,6 +171,7 @@ MULE:
   money-cost: 70.0
   item-cost: "CARROT:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 OCELOT:
   enabled: true
@@ -158,6 +179,7 @@ OCELOT:
   money-cost: 50.0
   item-cost: "COD:3"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 PANDA:
   enabled: true
@@ -165,6 +187,7 @@ PANDA:
   money-cost: 120.0
   item-cost: "BAMBOO:10"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 PARROT:
   enabled: true
@@ -172,6 +195,7 @@ PARROT:
   money-cost: 60.0
   item-cost: "SEEDS:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 PIG:
   enabled: true
@@ -179,6 +203,7 @@ PIG:
   money-cost: 25.0
   item-cost: "CARROT:3"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 POLAR_BEAR:
   enabled: true
@@ -186,6 +211,7 @@ POLAR_BEAR:
   money-cost: 150.0
   item-cost: "COD:10"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 PUFFERFISH:
   enabled: true
@@ -193,6 +219,7 @@ PUFFERFISH:
   money-cost: 30.0
   item-cost: "KELP:3"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 RABBIT:
   enabled: true
@@ -200,6 +227,7 @@ RABBIT:
   money-cost: 20.0
   item-cost: "CARROT:2"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 SALMON:
   enabled: true
@@ -207,6 +235,7 @@ SALMON:
   money-cost: 10.0
   item-cost: "KELP:2"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 SHEEP:
   enabled: true
@@ -214,6 +243,7 @@ SHEEP:
   money-cost: 25.0
   item-cost: "WHEAT:3"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 SKELETON_HORSE:
   enabled: true
@@ -221,6 +251,7 @@ SKELETON_HORSE:
   money-cost: 500.0
   item-cost: "BONE:20"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 SNIFFER:
   enabled: true
@@ -228,6 +259,7 @@ SNIFFER:
   money-cost: 200.0
   item-cost: "TORCHFLOWER_SEEDS:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 SQUID:
   enabled: true
@@ -235,6 +267,7 @@ SQUID:
   money-cost: 15.0
   item-cost: "INK_SAC:1"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 STRIDER:
   enabled: true
@@ -242,6 +275,7 @@ STRIDER:
   money-cost: 80.0
   item-cost: "WARPED_FUNGUS:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 TADPOLE:
   enabled: true
@@ -249,6 +283,7 @@ TADPOLE:
   money-cost: 5.0
   item-cost: "SLIME_BALL:1"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 TROPICAL_FISH:
   enabled: true
@@ -256,6 +291,7 @@ TROPICAL_FISH:
   money-cost: 15.0
   item-cost: "KELP:2"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 TURTLE:
   enabled: true
@@ -263,6 +299,7 @@ TURTLE:
   money-cost: 40.0
   item-cost: "SEAGRASS:5"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 VILLAGER:
   enabled: true
@@ -270,6 +307,7 @@ VILLAGER:
   money-cost: 200.0
   item-cost: "EMERALD:5"
   max-health-percentage: 1.0
+  spawner-enabled: false
 
 WANDERING_TRADER:
   enabled: true
@@ -277,6 +315,7 @@ WANDERING_TRADER:
   money-cost: 300.0
   item-cost: "EMERALD:10"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 WOLF:
   enabled: true
@@ -284,6 +323,7 @@ WOLF:
   money-cost: 50.0
   item-cost: "BONE:3"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 ZOMBIE_HORSE:
   enabled: true
@@ -291,6 +331,7 @@ ZOMBIE_HORSE:
   money-cost: 400.0
   item-cost: "ROTTEN_FLESH:20"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 # Neutral Mobs
 CAVE_SPIDER:
@@ -299,6 +340,7 @@ CAVE_SPIDER:
   money-cost: 60.0
   item-cost: "SPIDER_EYE:2"
   max-health-percentage: 0.5
+  spawner-enabled: true
 
 ENDERMAN:
   enabled: true
@@ -306,6 +348,7 @@ ENDERMAN:
   money-cost: 300.0
   item-cost: "ENDER_PEARL:3"
   max-health-percentage: 0.3
+  spawner-enabled: true
 
 IRON_GOLEM:
   enabled: true
@@ -313,6 +356,7 @@ IRON_GOLEM:
   money-cost: 1000.0
   item-cost: "IRON_BLOCK:5"
   max-health-percentage: 0.2
+  spawner-enabled: true
 
 LLAMA:
   enabled: true
@@ -320,6 +364,7 @@ LLAMA:
   money-cost: 60.0
   item-cost: "HAY_BLOCK:2"
   max-health-percentage: 1.0
+  spawner-enabled: true
 
 PIGLIN:
   enabled: true
@@ -327,6 +372,7 @@ PIGLIN:
   money-cost: 100.0
   item-cost: "GOLD_INGOT:3"
   max-health-percentage: 0.5
+  spawner-enabled: true
 
 SPIDER:
   enabled: true
@@ -334,6 +380,7 @@ SPIDER:
   money-cost: 40.0
   item-cost: "STRING:5"
   max-health-percentage: 0.5
+  spawner-enabled: true
 
 ZOMBIFIED_PIGLIN:
   enabled: true
@@ -341,6 +388,7 @@ ZOMBIFIED_PIGLIN:
   money-cost: 80.0
   item-cost: "ROTTEN_FLESH:5"
   max-health-percentage: 0.5
+  spawner-enabled: true
 
 # Hostile Mobs
 BLAZE:
@@ -349,6 +397,7 @@ BLAZE:
   money-cost: 200.0
   item-cost: "BLAZE_POWDER:5"
   max-health-percentage: 0.3
+  spawner-enabled: true
 
 BOGGED:
   enabled: true
@@ -356,6 +405,7 @@ BOGGED:
   money-cost: 120.0
   item-cost: "BONE:5"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 BREEZE:
   enabled: true
@@ -363,6 +413,7 @@ BREEZE:
   money-cost: 300.0
   item-cost: "WIND_CHARGE:3"
   max-health-percentage: 0.3
+  spawner-enabled: true
 
 CREEPER:
   enabled: true
@@ -370,6 +421,7 @@ CREEPER:
   money-cost: 100.0
   item-cost: "GUNPOWDER:5"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 DROWNED:
   enabled: true
@@ -377,6 +429,7 @@ DROWNED:
   money-cost: 80.0
   item-cost: "ROTTEN_FLESH:3"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 ELDER_GUARDIAN:
   enabled: false
@@ -384,6 +437,7 @@ ELDER_GUARDIAN:
   money-cost: 2000.0
   item-cost: "PRISMARINE_SHARD:20"
   max-health-percentage: 0.1
+  spawner-enabled: true
 
 ENDERMITE:
   enabled: true
@@ -391,6 +445,7 @@ ENDERMITE:
   money-cost: 50.0
   item-cost: "ENDER_PEARL:1"
   max-health-percentage: 0.6
+  spawner-enabled: true
 
 EVOKER:
   enabled: true
@@ -398,6 +453,7 @@ EVOKER:
   money-cost: 500.0
   item-cost: "TOTEM_OF_UNDYING:1"
   max-health-percentage: 0.2
+  spawner-enabled: true
 
 GHAST:
   enabled: true
@@ -405,6 +461,7 @@ GHAST:
   money-cost: 400.0
   item-cost: "GHAST_TEAR:3"
   max-health-percentage: 0.2
+  spawner-enabled: true
 
 GUARDIAN:
   enabled: true
@@ -412,6 +469,7 @@ GUARDIAN:
   money-cost: 150.0
   item-cost: "PRISMARINE_SHARD:5"
   max-health-percentage: 0.3
+  spawner-enabled: true
 
 HOGLIN:
   enabled: true
@@ -419,6 +477,7 @@ HOGLIN:
   money-cost: 120.0
   item-cost: "PORKCHOP:5"
   max-health-percentage: 0.3
+  spawner-enabled: true
 
 HUSK:
   enabled: true
@@ -426,6 +485,7 @@ HUSK:
   money-cost: 60.0
   item-cost: "SAND:10"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 MAGMA_CUBE:
   enabled: true
@@ -433,6 +493,7 @@ MAGMA_CUBE:
   money-cost: 80.0
   item-cost: "MAGMA_CREAM:3"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 PHANTOM:
   enabled: true
@@ -440,6 +501,7 @@ PHANTOM:
   money-cost: 150.0
   item-cost: "PHANTOM_MEMBRANE:2"
   max-health-percentage: 0.3
+  spawner-enabled: true
 
 PILLAGER:
   enabled: true
@@ -447,6 +509,7 @@ PILLAGER:
   money-cost: 100.0
   item-cost: "CROSSBOW:1"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 RAVAGER:
   enabled: true
@@ -454,6 +517,7 @@ RAVAGER:
   money-cost: 800.0
   item-cost: "EMERALD:10"
   max-health-percentage: 0.2
+  spawner-enabled: true
 
 SHULKER:
   enabled: true
@@ -461,6 +525,7 @@ SHULKER:
   money-cost: 300.0
   item-cost: "SHULKER_SHELL:1"
   max-health-percentage: 0.3
+  spawner-enabled: true
 
 SILVERFISH:
   enabled: true
@@ -468,6 +533,7 @@ SILVERFISH:
   money-cost: 30.0
   item-cost: "STONE:5"
   max-health-percentage: 0.6
+  spawner-enabled: true
 
 SKELETON:
   enabled: true
@@ -475,6 +541,7 @@ SKELETON:
   money-cost: 70.0
   item-cost: "BONE:3"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 SLIME:
   enabled: true
@@ -482,6 +549,7 @@ SLIME:
   money-cost: 50.0
   item-cost: "SLIME_BALL:2"
   max-health-percentage: 0.5
+  spawner-enabled: true
 
 STRAY:
   enabled: true
@@ -489,6 +557,7 @@ STRAY:
   money-cost: 80.0
   item-cost: "BONE:5"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 VEX:
   enabled: true
@@ -496,6 +565,7 @@ VEX:
   money-cost: 200.0
   item-cost: "IRON_SWORD:1"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 VINDICATOR:
   enabled: true
@@ -503,6 +573,7 @@ VINDICATOR:
   money-cost: 150.0
   item-cost: "IRON_AXE:1"
   max-health-percentage: 0.3
+  spawner-enabled: true
 
 WARDEN:
   enabled: false
@@ -510,6 +581,7 @@ WARDEN:
   money-cost: 5000.0
   item-cost: "SCULK_CATALYST:10"
   max-health-percentage: 0.05
+  spawner-enabled: true
 
 WITCH:
   enabled: true
@@ -517,6 +589,7 @@ WITCH:
   money-cost: 120.0
   item-cost: "POTION:3"
   max-health-percentage: 0.3
+  spawner-enabled: true
 
 WITHER_SKELETON:
   enabled: true
@@ -524,6 +597,7 @@ WITHER_SKELETON:
   money-cost: 400.0
   item-cost: "WITHER_SKELETON_SKULL:1"
   max-health-percentage: 0.2
+  spawner-enabled: true
 
 ZOGLIN:
   enabled: true
@@ -531,6 +605,7 @@ ZOGLIN:
   money-cost: 200.0
   item-cost: "ROTTEN_FLESH:10"
   max-health-percentage: 0.2
+  spawner-enabled: true
 
 ZOMBIE:
   enabled: true
@@ -538,6 +613,7 @@ ZOMBIE:
   money-cost: 50.0
   item-cost: "ROTTEN_FLESH:3"
   max-health-percentage: 0.4
+  spawner-enabled: true
 
 ZOMBIE_VILLAGER:
   enabled: true
@@ -545,6 +621,7 @@ ZOMBIE_VILLAGER:
   money-cost: 100.0
   item-cost: "GOLDEN_APPLE:1"
   max-health-percentage: 0.4
+  spawner-enabled: false
 
 # Boss Mobs (usually disabled by default)
 ENDER_DRAGON:
@@ -553,6 +630,7 @@ ENDER_DRAGON:
   money-cost: 50000.0
   item-cost: "DRAGON_EGG:1"
   max-health-percentage: 0.01
+  spawner-enabled: true
 
 WITHER:
   enabled: false
@@ -560,3 +638,4 @@ WITHER:
   money-cost: 20000.0
   item-cost: "NETHER_STAR:3"
   max-health-percentage: 0.02
+  spawner-enabled: true

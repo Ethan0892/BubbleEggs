@@ -72,7 +72,14 @@ public class SpawnerListener implements Listener {
             event.setCancelled(true);
             return;
         }
-        
+
+        // Check if this specific mob type is allowed to change spawners
+        if (!configManager.getMobAllowsSpawnerChange(mobType)) {
+            messageUtil.sendLangMessage(player, "spawner.mob-disabled");
+            event.setCancelled(true);
+            return;
+        }
+
         try {
             EntityType entityType = EntityType.valueOf(mobType);
             

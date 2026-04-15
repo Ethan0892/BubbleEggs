@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Set;
 
 public class ConfigManager {
@@ -214,6 +215,48 @@ public class ConfigManager {
     
     public double getMobMaxHealthPercentage(String mobType) {
         return mobsConfig.getDouble(mobType + ".max-health-percentage", 1.0);
+    }
+
+    public boolean getMobAllowsSpawnerChange(String mobType) {
+        return mobsConfig.getBoolean(mobType + ".spawner-enabled", true);
+    }
+
+    // Per-world config helpers (fall back to global values if the world section is absent)
+
+    public int getWorldCooldown(String worldName) {
+        if (config.contains("catching.worlds." + worldName + ".cooldown")) {
+            return config.getInt("catching.worlds." + worldName + ".cooldown");
+        }
+        return getCooldown();
+    }
+
+    public double getWorldCatchMultiplier(String worldName) {
+        if (config.contains("catching.worlds." + worldName + ".chance-multiplier")) {
+            return config.getDouble("catching.worlds." + worldName + ".chance-multiplier", 1.0);
+        }
+        return 1.0;
+    }
+
+    public double getWorldRareThreshold(String worldName) {
+        if (config.contains("catching.worlds." + worldName + ".rare-threshold")) {
+            return config.getDouble("catching.worlds." + worldName + ".rare-threshold");
+        }
+        return config.getDouble("catching.rare-threshold", 0.1);
+    }
+
+    public int getWorldXpCostLevels(String worldName) {
+        if (config.contains("catching.worlds." + worldName + ".xp-cost-levels")) {
+            return config.getInt("catching.worlds." + worldName + ".xp-cost-levels");
+        }
+        return config.getInt("catching.xp-cost-levels", 0);
+    }
+
+    public boolean isWorldEnabled(String worldName) {
+        if (config.contains("catching.worlds." + worldName + ".enabled")) {
+            return config.getBoolean("catching.worlds." + worldName + ".enabled", true);
+        }
+        List<String> disabledWorlds = config.getStringList("catching.disabled-worlds");
+        return !disabledWorlds.contains(worldName);
     }
     
     public void setMobCatchChance(String mobType, double chance) {

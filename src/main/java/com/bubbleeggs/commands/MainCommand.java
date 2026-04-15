@@ -2,9 +2,11 @@ package com.bubbleeggs.commands;
 
 import com.bubbleeggs.BubbleEggs;
 import com.bubbleeggs.managers.ConfigManager;
+import com.bubbleeggs.managers.StatsManager;
 import com.bubbleeggs.utils.ItemUtil;
 import com.bubbleeggs.utils.MessageUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,6 +17,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class MainCommand implements CommandExecutor, TabCompleter {
     
@@ -55,6 +58,14 @@ public class MainCommand implements CommandExecutor, TabCompleter {
                 
             case "bulkupdate":
                 handleBulkUpdate(sender, args);
+                break;
+
+            case "stats":
+                handleStats(sender, args);
+                break;
+
+            case "top":
+                handleTop(sender, args);
                 break;
                 
             default:
@@ -102,6 +113,7 @@ public class MainCommand implements CommandExecutor, TabCompleter {
         
         try {
             configManager.reloadConfigs();
+            plugin.registerCraftingRecipes();
             messageUtil.sendLangMessage(sender, "plugin.reload-success");
         } catch (Exception e) {
             messageUtil.sendLangMessage(sender, "plugin.reload-error", "%error%", e.getMessage());
@@ -164,8 +176,108 @@ public class MainCommand implements CommandExecutor, TabCompleter {
         }
     }
     
-    private void handleBulkUpdate(CommandSender sender, String[] args) {
-        if (!sender.hasPermission("bubbleeggs.*")) {
+    private void handleStats(CommandSender sender, String[] args) {
+        if (!sender.hasPermission("bubbleeggs.stats")) {
+            messageUtil.sendLangMessage(sender, "stats.no-permission");
+            return;
+        }
+
+        OfflinePlayer target;
+        String targetName;
+        if (args.length >= 2) {
+            target = Bukkit.getOfflinePlayer(args[1]);
+            targetName = args[1];
+        } else {
+            if (!(sender instanceof Player)) {
+                messageUtil.sendLangMessage(sender, "commands.player-only");
+                return;
+            }
+            target = (Player) sender;
+            targetName = sender.getName();
+        }
+
+        StatsManager stats = plugin.getStatsManager();
+        int catches = stats.getPlayerCatches(target.getUniqueId());
+        int rareCatches = stats.getPlayerRareCatches(target.getUniqueId());
+
+        if (catches == 0 && rareCatches == 0) {
+            messageUtil.sendLangMessage(sender, "stats.no-stats", "%player%", targetName);
+            return;
+        }
+
+        String header = configManager.getLangConfig().getString("stats.header", "=== %player%'s Stats ===")
+                .replace("%player%", targetName);
+        sender.sendMessage(messageUtil.colorize(header));
+
+        String catchesLine = configManager.getLangConfig().getString("stats.catches", "Total Catches: %catches%")
+                .replace("%catches%", String.valueOf(catches));
+        sender.sendMessage(messageUtil.colorize(catchesLine));
+
+        String rareLine = configManager.getLangConfig().getString("stats.rare-catches", "Rare Catches: %rare%")
+                .replace("%rare%", String.valueOf(rareCatches));
+        sender.sendMessage(messageUtil.colorize(rareLine));
+    }
+
+    private void handleTop(CommandSender sender, String[] args) {
+        if (!sender.hasPermission("bubbleeggs.top")) {
+            messageUtil.sendLangMessage(sender, "leaderboard.no-permission");
+            return;
+        }
+
+        String type = args.length >= 2 ? args[1].toLowerCase() : "catches";
+        if (!type.equals("catches") && !type.equals("rare")) {
+            messageUtil.sendLangMessage(sender, "leaderboard.invalid-type");
+            return;
+        }
+
+        int page;
+        try {
+            page = args.length >= 3 ? Integer.parseInt(args[2]) : 1;
+            if (page < 1) throw new NumberFormatException();
+        } catch (NumberFormatException e) {
+            messageUtil.sendLangMessage(sender, "leaderboard.invalid-page");
+            return;
+        }
+
+        int perPage = 10;
+        StatsManager stats = plugin.getStatsManager();
+        List<Map.Entry<String, Integer>> entries = type.equals("rare")
+                ? stats.getTopRareCatches(Integer.MAX_VALUE)
+                : stats.getTopCatches(Integer.MAX_VALUE);
+
+        if (entries.isEmpty()) {
+            messageUtil.sendLangMessage(sender, "leaderboard.no-entries");
+            return;
+        }
+
+        int totalPages = (int) Math.ceil(entries.size() / (double) perPage);
+        if (page > totalPages) {
+            messageUtil.sendLangMessage(sender, "leaderboard.invalid-page");
+            return;
+        }
+
+        String displayType = type.equals("rare") ? "Rare Catches" : "Catches";
+        String header = configManager.getLangConfig().getString("leaderboard.header", "=== Top %type% (Page %page%/%pages%) ===")
+                .replace("%type%", displayType)
+                .replace("%page%", String.valueOf(page))
+                .replace("%pages%", String.valueOf(totalPages));
+        sender.sendMessage(messageUtil.colorize(header));
+
+        int start = (page - 1) * perPage;
+        int end = Math.min(start + perPage, entries.size());
+        String entryFormat = configManager.getLangConfig().getString("leaderboard.entry", "#%rank% %player%: %value%");
+
+        for (int i = start; i < end; i++) {
+            Map.Entry<String, Integer> entry = entries.get(i);
+            String line = entryFormat
+                    .replace("%rank%", String.valueOf(i + 1))
+                    .replace("%player%", entry.getKey())
+                    .replace("%value%", String.valueOf(entry.getValue()));
+            sender.sendMessage(messageUtil.colorize(line));
+        }
+    }
+
+    private void handleBulkUpdate(CommandSender sender, String[] args) {        if (!sender.hasPermission("bubbleeggs.*")) {
             messageUtil.sendLangMessage(sender, "commands.no-permission");
             return;
         }
@@ -275,7 +387,7 @@ public class MainCommand implements CommandExecutor, TabCompleter {
         List<String> completions = new ArrayList<>();
         
         if (args.length == 1) {
-            List<String> subCommands = Arrays.asList("help", "reload", "give", "bulkupdate");
+            List<String> subCommands = Arrays.asList("help", "reload", "give", "bulkupdate", "stats", "top");
             for (String subCommand : subCommands) {
                 if (subCommand.toLowerCase().startsWith(args[0].toLowerCase())) {
                     completions.add(subCommand);
@@ -287,6 +399,19 @@ public class MainCommand implements CommandExecutor, TabCompleter {
                 for (String type : types) {
                     if (type.toLowerCase().startsWith(args[1].toLowerCase())) {
                         completions.add(type);
+                    }
+                }
+            } else if (args[0].equalsIgnoreCase("top")) {
+                List<String> types = Arrays.asList("catches", "rare");
+                for (String type : types) {
+                    if (type.toLowerCase().startsWith(args[1].toLowerCase())) {
+                        completions.add(type);
+                    }
+                }
+            } else if (args[0].equalsIgnoreCase("stats")) {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    if (player.getName().toLowerCase().startsWith(args[1].toLowerCase())) {
+                        completions.add(player.getName());
                     }
                 }
             }

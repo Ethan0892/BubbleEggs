@@ -24,6 +24,8 @@ commands:
     - "&#FF6B6B/mte reload &#FFFFFF- Reload plugin configuration"
     - "&#FF6B6B/mte give <amount> [player] &#FFFFFF- Give catch capsules"
     - "&#FF6B6B/mte bulkupdate <type> <value> &#FFFFFF- Bulk update mob settings"
+    - "&#FF6B6B/mte stats [player] &#FFFFFF- View catch statistics"
+    - "&#FF6B6B/mte top [catches|rare] [page] &#FFFFFF- View leaderboards"
   
   give:
     success-self: "&#00FF00You received %amount% catch capsule(s)!"
@@ -55,6 +57,9 @@ catching:
   tamed-mob: "&#FF0000Tamed mobs cannot be caught!"
   too-healthy: "&#FF0000The mob is too healthy to catch! (Max: %max%% health)"
   inventory-full: "&#FF0000Your inventory is full! The spawn egg was dropped."
+  xp-cost: "&#FFD700%levels% XP level(s) consumed for this catch."
+  insufficient-xp: "&#FF0000You need %levels% XP level(s) to catch this mob!"
+  rare-catch: "&#FFD700&#lRare catch! You caught a %mob%!"
 
 # Economy Messages
 economy:
@@ -81,16 +86,33 @@ spawner:
   no-permission: "&#FF0000You don't have permission to change spawners!"
   invalid-spawner: "&#FF0000This is not a valid spawner!"
   disabled: "&#FF0000Spawner changing is disabled!"
+  mob-disabled: "&#FF0000This mob type cannot be used to change spawner types!"
 
 # Error Messages
-error:
-  config-load: "&#FF0000Error loading configuration: %error%"
+error:  config-load: "&#FF0000Error loading configuration: %error%"
   mob-not-found: "&#FF0000Mob type '%mob%' not found!"
   invalid-projectile: "&#FF0000Invalid projectile material: %material%"
   economy-unavailable: "&#FF0000Economy system is not available!"
   worldguard-unavailable: "&#FF0000WorldGuard is not available!"
   nbtapi-unavailable: "&#FF0000NBTAPI is not available!"
   database-error: "&#FF0000Database error: %error%"
+
+# Stats Messages
+stats:
+  header: "&#FF6B6B=== %player%'s Stats ==="
+  catches: "&#FFFFFFTotal Catches: &#00FF00%catches%"
+  rare-catches: "&#FFFFFFRare Catches: &#FFD700%rare%"
+  no-stats: "&#FF0000%player% has no stats yet!"
+  no-permission: "&#FF0000You don't have permission to view stats!"
+
+# Leaderboard Messages
+leaderboard:
+  header: "&#FF6B6B=== Top %type% (Page %page%/%pages%) ==="
+  entry: "&#FFD700#%rank% &#FFFFFF%player%: &#00FF00%value%"
+  no-entries: "&#FF0000No entries found!"
+  invalid-type: "&#FF0000Invalid type! Use: catches or rare"
+  invalid-page: "&#FF0000Invalid page number!"
+  no-permission: "&#FF0000You don't have permission to view leaderboards!"
 
 # Placeholders (for spawn egg names/lore)
 placeholders:

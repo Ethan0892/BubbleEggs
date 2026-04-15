@@ -20,7 +20,7 @@ public class CatchUtil {
     private final ConfigManager configManager;
     private final EconomyManager economyManager;
     private final MessageUtil messageUtil;
-    private final Map<UUID, Long> cooldowns = new HashMap<>();
+    private final Map<UUID, Map<String, Long>> worldCooldowns = new HashMap<>();
     
     public CatchUtil(BubbleEggs plugin) {
         this.plugin = plugin;
@@ -69,38 +69,48 @@ public class CatchUtil {
     }
     
     public void attemptCatch(Player player, LivingEntity mob, Location location) {
+        String worldName = location.getWorld().getName();
+
         // Check basic permissions and conditions
-        if (!canCatch(player, mob, location)) {
+        if (!canCatch(player, mob, location, worldName)) {
             return;
         }
-        
+
         String mobType = mob.getType().toString();
-        
+
         // Check mob-specific conditions
         if (!canCatchMob(player, mob, mobType)) {
             return;
         }
-        
+
         // Check and handle costs
-        if (!handleCosts(player, mobType)) {
+        if (!handleCosts(player, mobType, worldName)) {
             return;
         }
-        
-        // Calculate catch chance
+
+        // Calculate final catch chance with world multiplier
         double catchChance = configManager.getMobCatchChance(mobType);
-        boolean success = Math.random() < catchChance;
-        
+        double multiplier = configManager.getWorldCatchMultiplier(worldName);
+        double finalChance = Math.min(1.0, Math.max(0.0, catchChance * multiplier));
+
+        // Determine if this qualifies as a rare catch
+        double rareThreshold = configManager.getWorldRareThreshold(worldName);
+        boolean rare = (rareThreshold > 0.0 && finalChance <= rareThreshold);
+
+        boolean success = Math.random() < finalChance;
+
         if (success) {
-            handleSuccessfulCatch(player, mob, mobType, location);
+            handleSuccessfulCatch(player, mob, mobType, location, rare);
+            plugin.getStatsManager().incrementCatches(player.getUniqueId(), rare);
         } else {
-            handleFailedCatch(player, mob, mobType, location, catchChance);
+            handleFailedCatch(player, mob, mobType, location, finalChance);
         }
-        
-        // Update cooldown
-        updateCooldown(player);
+
+        // Update cooldown regardless of success
+        updateCooldown(player, worldName);
     }
     
-    private boolean canCatch(Player player, LivingEntity mob, Location location) {
+    private boolean canCatch(Player player, LivingEntity mob, Location location, String worldName) {
         // Check permission
         if (!player.hasPermission("bubbleeggs.use")) {
             messageUtil.sendLangMessage(player, "catching.no-permission");
@@ -113,8 +123,8 @@ public class CatchUtil {
             return false;
         }
         
-        // Check world permissions
-        if (!canCatchInWorld(player, location.getWorld())) {
+        // Check world permissions (per-world overrides + legacy disabled-worlds)
+        if (!configManager.isWorldEnabled(worldName) && !player.hasPermission("bubbleeggs.bypass.world")) {
             messageUtil.sendLangMessage(player, "catching.disabled-world");
             return false;
         }
@@ -125,9 +135,9 @@ public class CatchUtil {
             return false;
         }
         
-        // Check cooldown
-        if (isOnCooldown(player)) {
-            long remaining = getRemainingCooldown(player);
+        // Check cooldown (per-world)
+        if (isOnCooldown(player, worldName)) {
+            long remaining = getRemainingCooldown(player, worldName);
             messageUtil.sendLangMessage(player, "catching.cooldown", "%time%", String.valueOf(remaining));
             return false;
         }
@@ -187,7 +197,7 @@ public class CatchUtil {
         return true;
     }
     
-    private boolean handleCosts(Player player, String mobType) {
+    private boolean handleCosts(Player player, String mobType, String worldName) {
         // Check economy cost
         if (configManager.isEconomyEnabled() && economyManager.isEconomyEnabled()) {
             double cost = configManager.getMobMoneyCost(mobType);
@@ -226,11 +236,22 @@ public class CatchUtil {
                 }
             }
         }
+
+        // Check XP level cost (per-world aware)
+        int xpCostLevels = configManager.getWorldXpCostLevels(worldName);
+        if (xpCostLevels > 0 && !player.hasPermission("bubbleeggs.bypass.xp")) {
+            if (player.getLevel() < xpCostLevels) {
+                messageUtil.sendLangMessage(player, "catching.insufficient-xp", "%levels%", String.valueOf(xpCostLevels));
+                return false;
+            }
+            player.setLevel(player.getLevel() - xpCostLevels);
+            messageUtil.sendLangMessage(player, "catching.xp-cost", "%levels%", String.valueOf(xpCostLevels));
+        }
         
         return true;
     }
     
-    private void handleSuccessfulCatch(Player player, LivingEntity mob, String mobType, Location location) {
+    private void handleSuccessfulCatch(Player player, LivingEntity mob, String mobType, Location location, boolean rare) {
         // Create spawn egg
         ItemStack spawnEgg = createSpawnEgg(mob, mobType);
         
@@ -245,8 +266,12 @@ public class CatchUtil {
         // Remove the mob
         mob.remove();
         
-        // Send success message
-        messageUtil.sendLangMessage(player, "catching.success", "%mob%", mobType);
+        // Send success message (rare catches get their own message)
+        if (rare) {
+            messageUtil.sendLangMessage(player, "catching.rare-catch", "%mob%", mobType);
+        } else {
+            messageUtil.sendLangMessage(player, "catching.success", "%mob%", mobType);
+        }
         
         // Play effects
         playSuccessEffects(player, location);
@@ -385,15 +410,6 @@ public class CatchUtil {
         }
     }
     
-    private boolean canCatchInWorld(Player player, World world) {
-        if (player.hasPermission("bubbleeggs.bypass.world")) {
-            return true;
-        }
-        
-        List<String> disabledWorlds = configManager.getConfig().getStringList("catching.disabled-worlds");
-        return !disabledWorlds.contains(world.getName());
-    }
-    
     private boolean canCatchInRegion(Player player, Location location) {
         // Check if WorldGuard is available
         if (plugin.getWorldGuardManager() == null) {
@@ -417,38 +433,36 @@ public class CatchUtil {
         }
     }
     
-    private boolean isOnCooldown(Player player) {
+    private boolean isOnCooldown(Player player, String worldName) {
         if (player.hasPermission("bubbleeggs.bypass.cooldown")) {
             return false;
         }
         
-        int cooldownSeconds = configManager.getCooldown();
+        int cooldownSeconds = configManager.getWorldCooldown(worldName);
         if (cooldownSeconds <= 0) {
             return false;
         }
         
         UUID playerId = player.getUniqueId();
-        if (!cooldowns.containsKey(playerId)) {
+        Map<String, Long> playerCooldowns = worldCooldowns.get(playerId);
+        if (playerCooldowns == null || !playerCooldowns.containsKey(worldName)) {
             return false;
         }
         
-        long lastCatch = cooldowns.get(playerId);
-        long currentTime = System.currentTimeMillis();
-        return (currentTime - lastCatch) < (cooldownSeconds * 1000L);
+        long lastCatch = playerCooldowns.get(worldName);
+        return (System.currentTimeMillis() - lastCatch) < (cooldownSeconds * 1000L);
     }
     
-    private long getRemainingCooldown(Player player) {
-        int cooldownSeconds = configManager.getCooldown();
-        UUID playerId = player.getUniqueId();
-        long lastCatch = cooldowns.get(playerId);
-        long currentTime = System.currentTimeMillis();
-        long elapsed = currentTime - lastCatch;
-        long remaining = (cooldownSeconds * 1000L) - elapsed;
+    private long getRemainingCooldown(Player player, String worldName) {
+        int cooldownSeconds = configManager.getWorldCooldown(worldName);
+        Map<String, Long> playerCooldowns = worldCooldowns.get(player.getUniqueId());
+        long lastCatch = playerCooldowns.get(worldName);
+        long remaining = (cooldownSeconds * 1000L) - (System.currentTimeMillis() - lastCatch);
         return Math.max(0, remaining / 1000L);
     }
     
-    private void updateCooldown(Player player) {
-        cooldowns.put(player.getUniqueId(), System.currentTimeMillis());
+    private void updateCooldown(Player player, String worldName) {
+        worldCooldowns.computeIfAbsent(player.getUniqueId(), k -> new HashMap<>()).put(worldName, System.currentTimeMillis());
     }
     
     private boolean hasEnoughItems(Player player, Material material, int amount) {
