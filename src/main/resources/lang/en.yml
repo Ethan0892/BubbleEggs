@@ -89,7 +89,8 @@ spawner:
   mob-disabled: "&#FF0000This mob type cannot be used to change spawner types!"
 
 # Error Messages
-error:  config-load: "&#FF0000Error loading configuration: %error%"
+error:
+  config-load: "&#FF0000Error loading configuration: %error%"
   mob-not-found: "&#FF0000Mob type '%mob%' not found!"
   invalid-projectile: "&#FF0000Invalid projectile material: %material%"
   economy-unavailable: "&#FF0000Economy system is not available!"
