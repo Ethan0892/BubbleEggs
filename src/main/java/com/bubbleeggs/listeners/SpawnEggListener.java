@@ -58,7 +58,8 @@ public class SpawnEggListener implements Listener {
         }
         
         // Check if location is safe for spawning
-        if (!isValidSpawnLocation(spawnLocation)) {
+        boolean enforceLocation = configManager.getConfig().getBoolean("spawn-eggs.enforce-valid-spawn-locations", true);
+        if (enforceLocation && !isValidSpawnLocation(spawnLocation)) {
             messageUtil.sendLangMessage(player, "spawn-egg.invalid-location");
             event.setCancelled(true);
             return;

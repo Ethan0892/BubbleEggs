@@ -2,6 +2,16 @@
 
 All notable changes to BubbleEggs will be documented in this file.
 
+## [1.1.3] - 2026-04-17
+
+### Fixed
+- Lang file now force-overwrites from the jar on every startup/reload — stale or broken `lang/en.yml` files on the server are always replaced with the current version
+- `en.yml` YAML parse error (error section key was merged onto one line in 1.1.2)
+
+### Added
+- `spawn-eggs.enforce-valid-spawn-locations` config option (default: `true`) — set to `false` to allow spawning aquatic mobs (dolphins, axolotls, etc.) in water and other non-air locations
+
+---
 ## [1.1.2] - 2026-04-15
 
 ### Added

@@ -70,10 +70,8 @@ public class ConfigManager {
             langDir.mkdirs();
         }
         
-        // Save default language file if it doesn't exist
-        if (!langFile.exists()) {
-            plugin.saveResource("lang/" + language + ".yml", false);
-        }
+        // Always overwrite the lang file from the jar so fixes are applied on update
+        plugin.saveResource("lang/" + language + ".yml", true);
         
         langConfig = YamlConfiguration.loadConfiguration(langFile);
         

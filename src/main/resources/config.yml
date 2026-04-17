@@ -108,6 +108,10 @@ spawn-eggs:
   # Save mob data to spawn eggs (requires NBTAPI)
   save-mob-data: true
   
+  # Enforce valid spawn location check before spawning
+  # Set to false to allow spawning in water (dolphins, axolotls, etc.) or other non-standard locations
+  enforce-valid-spawn-locations: true
+  
   # Custom model data for spawn eggs (0 = disabled)
   custom-model-data: 0
   

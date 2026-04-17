@@ -1,5 +1,5 @@
 name: BubbleEggs
-version: 1.1.2
+version: 1.1.3
 main: com.bubbleeggs.BubbleEggs
 api-version: 1.21
 description: Catch mobs and give players spawn eggs
