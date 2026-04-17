@@ -70,12 +70,21 @@ public class ConfigManager {
             langDir.mkdirs();
         }
         
-        // Always overwrite the lang file from the jar so fixes are applied on update
-        plugin.saveResource("lang/" + language + ".yml", true);
-        
-        langConfig = YamlConfiguration.loadConfiguration(langFile);
-        
-        // Load defaults from jar
+        // Only extract the lang file if it doesn't exist — never overwrite user customizations
+        if (!langFile.exists()) {
+            plugin.saveResource("lang/" + language + ".yml", false);
+        }
+
+        // Try to load the user's file; if it has invalid YAML, fall back gracefully
+        langConfig = new YamlConfiguration();
+        try {
+            langConfig.load(langFile);
+        } catch (Exception e) {
+            plugin.getLogger().warning("lang/" + language + ".yml could not be parsed (" + e.getMessage()
+                    + "). Using built-in defaults — please fix the file to restore your customizations.");
+        }
+
+        // Load defaults from jar so new/missing keys are always available after updates
         InputStream defaultStream = plugin.getResource("lang/" + language + ".yml");
         if (defaultStream != null) {
             YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(
